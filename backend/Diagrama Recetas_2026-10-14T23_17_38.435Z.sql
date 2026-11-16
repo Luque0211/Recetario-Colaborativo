@@ -1,0 +1,63 @@
+CREATE TABLE IF NOT EXISTS "Usuario" (
+	"id" SERIAL,
+	"email" VARCHAR(255) NOT NULL UNIQUE,
+	"password" VARCHAR(255) NOT NULL,
+	"nombre" VARCHAR(255) NOT NULL,
+	"createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("id")
+);
+
+CREATE TABLE IF NOT EXISTS "Categoria" (
+	"id" SERIAL,
+	"nombre" VARCHAR(255) NOT NULL UNIQUE,
+	PRIMARY KEY("id")
+);
+
+CREATE TABLE IF NOT EXISTS "Ingrediente" (
+	"id" SERIAL,
+	"nombre" VARCHAR(255) NOT NULL UNIQUE,
+	PRIMARY KEY("id")
+);
+
+CREATE TABLE IF NOT EXISTS "Receta" (
+	"id" SERIAL,
+	"titulo" VARCHAR(255) NOT NULL,
+	"descripcion" TEXT NOT NULL,
+	"instrucciones" TEXT NOT NULL,
+	"usuarioId" INTEGER NOT NULL,
+	"categoriaId" INTEGER NOT NULL,
+	"createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY("id")
+);
+
+CREATE TABLE IF NOT EXISTS "RecetaIngrediente" (
+	"recetaId" INTEGER NOT NULL,
+	"ingredienteId" INTEGER NOT NULL,
+	"cantidad" VARCHAR(100),
+	PRIMARY KEY("recetaId", "ingredienteId")
+);
+
+CREATE TABLE IF NOT EXISTS "Favorito" (
+	"usuarioId" INTEGER NOT NULL,
+	"recetaId" INTEGER NOT NULL,
+	PRIMARY KEY("usuarioId", "recetaId")
+);
+
+ALTER TABLE "Receta"
+ADD FOREIGN KEY("usuarioId") REFERENCES "Usuario"("id")
+ON UPDATE NO ACTION ON DELETE RESTRICT;
+ALTER TABLE "Receta"
+ADD FOREIGN KEY("categoriaId") REFERENCES "Categoria"("id")
+ON UPDATE NO ACTION ON DELETE RESTRICT;
+ALTER TABLE "RecetaIngrediente"
+ADD FOREIGN KEY("recetaId") REFERENCES "Receta"("id")
+ON UPDATE NO ACTION ON DELETE CASCADE;
+ALTER TABLE "RecetaIngrediente"
+ADD FOREIGN KEY("ingredienteId") REFERENCES "Ingrediente"("id")
+ON UPDATE NO ACTION ON DELETE CASCADE;
+ALTER TABLE "Favorito"
+ADD FOREIGN KEY("usuarioId") REFERENCES "Usuario"("id")
+ON UPDATE NO ACTION ON DELETE CASCADE;
+ALTER TABLE "Favorito"
+ADD FOREIGN KEY("recetaId") REFERENCES "Receta"("id")
+ON UPDATE NO ACTION ON DELETE CASCADE;

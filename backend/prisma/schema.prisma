@@ -1,0 +1,53 @@
+generator client {
+    provider = "prisma-client"
+    output   = "./generated"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+model Usuario {
+    id       Int    @id @default(autoincrement())
+    nombre   String
+    password String @unique
+    email    String
+
+    createdAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
+    recetas   Receta[]
+    favoritos Favorito[]
+}
+
+model Receta {
+    id Int @id @default(autoincrement())
+
+    usuarioId Int
+    usuario   Usuario @relation(fields: [usuarioId], references: [id])
+
+    favorios      Favorito[]
+    descripcion   String
+    instrucciones String     @unique
+    categoriaId   Int
+    categoria     Categoria  @relation(fields: [categoriaId], references: [id])
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Categoria {
+    id     Int    @id @default(autoincrement())
+    nombre String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    recetas   Receta[]
+}
+
+model Favorito {
+    id        Int     @id @default(autoincrement())
+    usuarioId Int
+    usuario   Usuario @relation(fields: [usuarioId], references: [id])
+    recetaId  Int
+    receta    Receta  @relation(fields: [recetaId], references: [id])
+}
