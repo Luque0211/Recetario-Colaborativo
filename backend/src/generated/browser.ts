@@ -33,6 +33,16 @@ export type Receta = Prisma.RecetaModel
  */
 export type Categoria = Prisma.CategoriaModel
 /**
+ * Model Ingrediente
+ * 
+ */
+export type Ingrediente = Prisma.IngredienteModel
+/**
+ * Model RecetaIngrediente
+ * 
+ */
+export type RecetaIngrediente = Prisma.RecetaIngredienteModel
+/**
  * Model Favorito
  * 
  */

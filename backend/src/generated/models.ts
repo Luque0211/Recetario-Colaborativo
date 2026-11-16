@@ -11,5 +11,7 @@
 export type * from './models/Usuario.ts'
 export type * from './models/Receta.ts'
 export type * from './models/Categoria.ts'
+export type * from './models/Ingrediente.ts'
+export type * from './models/RecetaIngrediente.ts'
 export type * from './models/Favorito.ts'
 export type * from './commonInputTypes.ts'

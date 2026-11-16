@@ -7,8 +7,8 @@ export const register = async (req, res) => {
   try {
     const { email, password, nombre } = req.body;
 
-    // Verificar si el correo ya existe
-    const usuarioExistente = await prisma.usuario.findUnique({ where: { email } });
+    // Verificar si el correo ya existe (Cambiado a findFirst)
+    const usuarioExistente = await prisma.usuario.findFirst({ where: { email } });
     if (usuarioExistente) {
       return res.status(400).json({ error: 'El correo electrónico ya está registrado.' });
     }
@@ -41,8 +41,8 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Buscar usuario
-    const usuario = await prisma.usuario.findUnique({ where: { email } });
+    // Buscar usuario (Cambiado a findFirst)
+    const usuario = await prisma.usuario.findFirst({ where: { email } });
     if (!usuario) {
       return res.status(401).json({ error: 'Credenciales inválidas.' });
     }
@@ -90,6 +90,7 @@ export const logout = (req, res) => {
 // 4. Obtener perfil del usuario autenticado
 export const getPerfil = async (req, res) => {
   try {
+    // Aquí se mantiene findUnique porque busca por ID (Primary Key)
     const usuario = await prisma.usuario.findUnique({
       where: { id: req.userId },
       select: { id: true, email: true, nombre: true, createdAt: true }

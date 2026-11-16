@@ -11,8 +11,8 @@ datasource db {
 model Usuario {
     id       Int    @id @default(autoincrement())
     nombre   String
-    password String @unique
-    email    String
+    email    String @unique
+    password String
 
     createdAt DateTime   @default(now())
     updatedAt DateTime   @updatedAt
@@ -26,14 +26,16 @@ model Receta {
     usuarioId Int
     usuario   Usuario @relation(fields: [usuarioId], references: [id])
 
-    favorios      Favorito[]
+    titulo        String
     descripcion   String
-    instrucciones String     @unique
+    instrucciones String
     categoriaId   Int
-    categoria     Categoria  @relation(fields: [categoriaId], references: [id])
+    categoria     Categoria @relation(fields: [categoriaId], references: [id])
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    ingredientes RecetaIngrediente[] // <-- ¡Relación añadida aquí!
+    favoritos    Favorito[]
+    createdAt    DateTime            @default(now())
+    updatedAt    DateTime            @updatedAt
 }
 
 model Categoria {
@@ -43,6 +45,23 @@ model Categoria {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     recetas   Receta[]
+}
+
+model Ingrediente {
+    id        Int                 @id @default(autoincrement())
+    nombre    String              @unique
+    recetas   RecetaIngrediente[]
+    createdAt DateTime            @default(now())
+    updatedAt DateTime            @updatedAt
+}
+
+model RecetaIngrediente {
+    id            Int         @id @default(autoincrement())
+    recetaId      Int
+    receta        Receta      @relation(fields: [recetaId], references: [id], onDelete: Cascade)
+    ingredienteId Int
+    ingrediente   Ingrediente @relation(fields: [ingredienteId], references: [id], onDelete: Cascade)
+    cantidad      String
 }
 
 model Favorito {

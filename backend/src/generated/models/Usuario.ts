@@ -37,8 +37,8 @@ export type UsuarioSumAggregateOutputType = {
 export type UsuarioMinAggregateOutputType = {
   id: number | null
   nombre: string | null
-  password: string | null
   email: string | null
+  password: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -46,8 +46,8 @@ export type UsuarioMinAggregateOutputType = {
 export type UsuarioMaxAggregateOutputType = {
   id: number | null
   nombre: string | null
-  password: string | null
   email: string | null
+  password: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -55,8 +55,8 @@ export type UsuarioMaxAggregateOutputType = {
 export type UsuarioCountAggregateOutputType = {
   id: number
   nombre: number
-  password: number
   email: number
+  password: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -74,8 +74,8 @@ export type UsuarioSumAggregateInputType = {
 export type UsuarioMinAggregateInputType = {
   id?: true
   nombre?: true
-  password?: true
   email?: true
+  password?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -83,8 +83,8 @@ export type UsuarioMinAggregateInputType = {
 export type UsuarioMaxAggregateInputType = {
   id?: true
   nombre?: true
-  password?: true
   email?: true
+  password?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -92,8 +92,8 @@ export type UsuarioMaxAggregateInputType = {
 export type UsuarioCountAggregateInputType = {
   id?: true
   nombre?: true
-  password?: true
   email?: true
+  password?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -188,8 +188,8 @@ export type UsuarioGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type UsuarioGroupByOutputType = {
   id: number
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt: Date
   updatedAt: Date
   _count: UsuarioCountAggregateOutputType | null
@@ -220,8 +220,8 @@ export type UsuarioWhereInput = {
   NOT?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
   id?: Prisma.IntFilter<"Usuario"> | number
   nombre?: Prisma.StringFilter<"Usuario"> | string
-  password?: Prisma.StringFilter<"Usuario"> | string
   email?: Prisma.StringFilter<"Usuario"> | string
+  password?: Prisma.StringFilter<"Usuario"> | string
   createdAt?: Prisma.DateTimeFilter<"Usuario"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Usuario"> | Date | string
   recetas?: Prisma.RecetaListRelationFilter
@@ -231,8 +231,8 @@ export type UsuarioWhereInput = {
 export type UsuarioOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   recetas?: Prisma.RecetaOrderByRelationAggregateInput
@@ -241,23 +241,23 @@ export type UsuarioOrderByWithRelationInput = {
 
 export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  password?: string
+  email?: string
   AND?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
   OR?: Prisma.UsuarioWhereInput[]
   NOT?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
   nombre?: Prisma.StringFilter<"Usuario"> | string
-  email?: Prisma.StringFilter<"Usuario"> | string
+  password?: Prisma.StringFilter<"Usuario"> | string
   createdAt?: Prisma.DateTimeFilter<"Usuario"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Usuario"> | Date | string
   recetas?: Prisma.RecetaListRelationFilter
   favoritos?: Prisma.FavoritoListRelationFilter
-}, "id" | "password">
+}, "id" | "email">
 
 export type UsuarioOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UsuarioCountOrderByAggregateInput
@@ -273,16 +273,16 @@ export type UsuarioScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UsuarioScalarWhereWithAggregatesInput | Prisma.UsuarioScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Usuario"> | number
   nombre?: Prisma.StringWithAggregatesFilter<"Usuario"> | string
-  password?: Prisma.StringWithAggregatesFilter<"Usuario"> | string
   email?: Prisma.StringWithAggregatesFilter<"Usuario"> | string
+  password?: Prisma.StringWithAggregatesFilter<"Usuario"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Usuario"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Usuario"> | Date | string
 }
 
 export type UsuarioCreateInput = {
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
   recetas?: Prisma.RecetaCreateNestedManyWithoutUsuarioInput
@@ -292,8 +292,8 @@ export type UsuarioCreateInput = {
 export type UsuarioUncheckedCreateInput = {
   id?: number
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
   recetas?: Prisma.RecetaUncheckedCreateNestedManyWithoutUsuarioInput
@@ -302,8 +302,8 @@ export type UsuarioUncheckedCreateInput = {
 
 export type UsuarioUpdateInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recetas?: Prisma.RecetaUpdateManyWithoutUsuarioNestedInput
@@ -313,8 +313,8 @@ export type UsuarioUpdateInput = {
 export type UsuarioUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recetas?: Prisma.RecetaUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -324,16 +324,16 @@ export type UsuarioUncheckedUpdateInput = {
 export type UsuarioCreateManyInput = {
   id?: number
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type UsuarioUpdateManyMutationInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -341,8 +341,8 @@ export type UsuarioUpdateManyMutationInput = {
 export type UsuarioUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -350,8 +350,8 @@ export type UsuarioUncheckedUpdateManyInput = {
 export type UsuarioCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -363,8 +363,8 @@ export type UsuarioAvgOrderByAggregateInput = {
 export type UsuarioMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -372,8 +372,8 @@ export type UsuarioMaxOrderByAggregateInput = {
 export type UsuarioMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nombre?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  password?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -433,8 +433,8 @@ export type UsuarioUpdateOneRequiredWithoutFavoritosNestedInput = {
 
 export type UsuarioCreateWithoutRecetasInput = {
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
   favoritos?: Prisma.FavoritoCreateNestedManyWithoutUsuarioInput
@@ -443,8 +443,8 @@ export type UsuarioCreateWithoutRecetasInput = {
 export type UsuarioUncheckedCreateWithoutRecetasInput = {
   id?: number
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
   favoritos?: Prisma.FavoritoUncheckedCreateNestedManyWithoutUsuarioInput
@@ -468,8 +468,8 @@ export type UsuarioUpdateToOneWithWhereWithoutRecetasInput = {
 
 export type UsuarioUpdateWithoutRecetasInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritos?: Prisma.FavoritoUpdateManyWithoutUsuarioNestedInput
@@ -478,8 +478,8 @@ export type UsuarioUpdateWithoutRecetasInput = {
 export type UsuarioUncheckedUpdateWithoutRecetasInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   favoritos?: Prisma.FavoritoUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -487,8 +487,8 @@ export type UsuarioUncheckedUpdateWithoutRecetasInput = {
 
 export type UsuarioCreateWithoutFavoritosInput = {
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
   recetas?: Prisma.RecetaCreateNestedManyWithoutUsuarioInput
@@ -497,8 +497,8 @@ export type UsuarioCreateWithoutFavoritosInput = {
 export type UsuarioUncheckedCreateWithoutFavoritosInput = {
   id?: number
   nombre: string
-  password: string
   email: string
+  password: string
   createdAt?: Date | string
   updatedAt?: Date | string
   recetas?: Prisma.RecetaUncheckedCreateNestedManyWithoutUsuarioInput
@@ -522,8 +522,8 @@ export type UsuarioUpdateToOneWithWhereWithoutFavoritosInput = {
 
 export type UsuarioUpdateWithoutFavoritosInput = {
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recetas?: Prisma.RecetaUpdateManyWithoutUsuarioNestedInput
@@ -532,8 +532,8 @@ export type UsuarioUpdateWithoutFavoritosInput = {
 export type UsuarioUncheckedUpdateWithoutFavoritosInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nombre?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   recetas?: Prisma.RecetaUncheckedUpdateManyWithoutUsuarioNestedInput
@@ -582,8 +582,8 @@ export type UsuarioCountOutputTypeCountFavoritosArgs<ExtArgs extends runtime.Typ
 export type UsuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nombre?: boolean
-  password?: boolean
   email?: boolean
+  password?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   recetas?: boolean | Prisma.Usuario$recetasArgs<ExtArgs>
@@ -594,8 +594,8 @@ export type UsuarioSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type UsuarioSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nombre?: boolean
-  password?: boolean
   email?: boolean
+  password?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["usuario"]>
@@ -603,8 +603,8 @@ export type UsuarioSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type UsuarioSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nombre?: boolean
-  password?: boolean
   email?: boolean
+  password?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["usuario"]>
@@ -612,13 +612,13 @@ export type UsuarioSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type UsuarioSelectScalar = {
   id?: boolean
   nombre?: boolean
-  password?: boolean
   email?: boolean
+  password?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UsuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "password" | "email" | "createdAt" | "updatedAt", ExtArgs["result"]["usuario"]>
+export type UsuarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nombre" | "email" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["usuario"]>
 export type UsuarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   recetas?: boolean | Prisma.Usuario$recetasArgs<ExtArgs>
   favoritos?: boolean | Prisma.Usuario$favoritosArgs<ExtArgs>
@@ -636,8 +636,8 @@ export type $UsuarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     nombre: string
-    password: string
     email: string
+    password: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["usuario"]>
@@ -1067,8 +1067,8 @@ export interface Prisma__UsuarioClient<T, Null = never, ExtArgs extends runtime.
 export interface UsuarioFieldRefs {
   readonly id: Prisma.FieldRef<"Usuario", 'Int'>
   readonly nombre: Prisma.FieldRef<"Usuario", 'String'>
-  readonly password: Prisma.FieldRef<"Usuario", 'String'>
   readonly email: Prisma.FieldRef<"Usuario", 'String'>
+  readonly password: Prisma.FieldRef<"Usuario", 'String'>
   readonly createdAt: Prisma.FieldRef<"Usuario", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Usuario", 'DateTime'>
 }

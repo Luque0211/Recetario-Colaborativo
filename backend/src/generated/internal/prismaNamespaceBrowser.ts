@@ -54,6 +54,8 @@ export const ModelName = {
   Usuario: 'Usuario',
   Receta: 'Receta',
   Categoria: 'Categoria',
+  Ingrediente: 'Ingrediente',
+  RecetaIngrediente: 'RecetaIngrediente',
   Favorito: 'Favorito'
 } as const
 
@@ -76,8 +78,8 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const UsuarioScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
-  password: 'password',
   email: 'email',
+  password: 'password',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -88,6 +90,7 @@ export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeo
 export const RecetaScalarFieldEnum = {
   id: 'id',
   usuarioId: 'usuarioId',
+  titulo: 'titulo',
   descripcion: 'descripcion',
   instrucciones: 'instrucciones',
   categoriaId: 'categoriaId',
@@ -106,6 +109,26 @@ export const CategoriaScalarFieldEnum = {
 } as const
 
 export type CategoriaScalarFieldEnum = (typeof CategoriaScalarFieldEnum)[keyof typeof CategoriaScalarFieldEnum]
+
+
+export const IngredienteScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IngredienteScalarFieldEnum = (typeof IngredienteScalarFieldEnum)[keyof typeof IngredienteScalarFieldEnum]
+
+
+export const RecetaIngredienteScalarFieldEnum = {
+  id: 'id',
+  recetaId: 'recetaId',
+  ingredienteId: 'ingredienteId',
+  cantidad: 'cantidad'
+} as const
+
+export type RecetaIngredienteScalarFieldEnum = (typeof RecetaIngredienteScalarFieldEnum)[keyof typeof RecetaIngredienteScalarFieldEnum]
 
 
 export const FavoritoScalarFieldEnum = {

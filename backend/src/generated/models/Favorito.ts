@@ -253,7 +253,7 @@ export type FavoritoScalarWhereWithAggregatesInput = {
 
 export type FavoritoCreateInput = {
   usuario: Prisma.UsuarioCreateNestedOneWithoutFavoritosInput
-  receta: Prisma.RecetaCreateNestedOneWithoutFavoriosInput
+  receta: Prisma.RecetaCreateNestedOneWithoutFavoritosInput
 }
 
 export type FavoritoUncheckedCreateInput = {
@@ -264,7 +264,7 @@ export type FavoritoUncheckedCreateInput = {
 
 export type FavoritoUpdateInput = {
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutFavoritosNestedInput
-  receta?: Prisma.RecetaUpdateOneRequiredWithoutFavoriosNestedInput
+  receta?: Prisma.RecetaUpdateOneRequiredWithoutFavoritosNestedInput
 }
 
 export type FavoritoUncheckedUpdateInput = {
@@ -414,7 +414,7 @@ export type FavoritoUncheckedUpdateManyWithoutRecetaNestedInput = {
 }
 
 export type FavoritoCreateWithoutUsuarioInput = {
-  receta: Prisma.RecetaCreateNestedOneWithoutFavoriosInput
+  receta: Prisma.RecetaCreateNestedOneWithoutFavoritosInput
 }
 
 export type FavoritoUncheckedCreateWithoutUsuarioInput = {
@@ -498,7 +498,7 @@ export type FavoritoCreateManyUsuarioInput = {
 }
 
 export type FavoritoUpdateWithoutUsuarioInput = {
-  receta?: Prisma.RecetaUpdateOneRequiredWithoutFavoriosNestedInput
+  receta?: Prisma.RecetaUpdateOneRequiredWithoutFavoritosNestedInput
 }
 
 export type FavoritoUncheckedUpdateWithoutUsuarioInput = {
